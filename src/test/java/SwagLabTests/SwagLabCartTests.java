@@ -118,6 +118,8 @@ public class SwagLabCartTests extends BasicTest {
 
     @Test
     public void verifyGetAllItemsOption(){
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
         wait
                 .withMessage("Left Navigation Page should be visible")
@@ -130,6 +132,8 @@ public class SwagLabCartTests extends BasicTest {
 
     @Test
     public void verifyAboutOption(){
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
         wait
                 .withMessage("Left Navigation Page should be visible")
@@ -140,6 +144,8 @@ public class SwagLabCartTests extends BasicTest {
     }
     @Test
     public void verifylogoutOption(){
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
         wait
                 .withMessage("Left Navigation Page should be visible")
@@ -147,6 +153,20 @@ public class SwagLabCartTests extends BasicTest {
 
         leftNavMenu.clickOnLogoutOption();
         Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/"), "User should be loggin page");
+    }
+
+    @Test
+    public void verifyIfResetAppStateIsWorking(){
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        headerPage.clickOnHamMenu();
+        wait
+                .withMessage("Left Navigation Page should be visible")
+                .until(ExpectedConditions.visibilityOf(leftNavMenu.getLeftNavPage()));
+
+        leftNavMenu.clickOnLogoutOption();
+        Assert.assertTrue(loginPage.getLoginButton().isDisplayed());
+
     }
 
 
