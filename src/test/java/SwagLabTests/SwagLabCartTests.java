@@ -63,6 +63,13 @@ public class SwagLabCartTests extends BasicTest {
 
     }
 
+    @Test
+    public void verifyCartBtnIsEnabled(){
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        Assert.assertTrue(headerPage.isShoppingCartBtnEnabled(), "Shopping Cart button should be enabled on Cart page");
+
+    }
 
 
 

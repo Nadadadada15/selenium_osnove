@@ -16,10 +16,14 @@ public class HeaderPage extends BasicPage {
         return cartContainer.getText();
     }
 
+    public WebElement getCartButton(){
+
+        return driver.findElement(By.className("shopping_cart_link"));
+    }
+
     public void clickOnAddToCartBtn() {
 
-        WebElement cartLink = driver.findElement(By.className("shopping_cart_link"));
-        cartLink.click();
+       getCartButton().click();
     }
 
 
@@ -52,5 +56,10 @@ public class HeaderPage extends BasicPage {
     public boolean isHamMenuEnabled(){
 
         return getHamMenu().isEnabled();
+    }
+
+    public boolean isShoppingCartBtnEnabled(){
+
+        return getCartButton().isEnabled();
     }
 }
