@@ -116,9 +116,8 @@ public class SwagLabCartTests extends BasicTest {
     }
 
 
-
     @Test
-    public void verifyGetAllItemsOption(){
+    public void verifyGetAllItemsOption() {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
@@ -132,7 +131,7 @@ public class SwagLabCartTests extends BasicTest {
 
 
     @Test
-    public void verifyAboutOption(){
+    public void verifyAboutOption() {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
@@ -143,8 +142,9 @@ public class SwagLabCartTests extends BasicTest {
         leftNavMenu.clickOnAboutOption();
         Assert.assertTrue(driver.getCurrentUrl().equals("https://saucelabs.com/"), "User should be on saucelab promopage");
     }
+
     @Test
-    public void verifylogoutOption(){
+    public void verifylogoutOption() {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
@@ -157,7 +157,7 @@ public class SwagLabCartTests extends BasicTest {
     }
 
     @Test
-    public void verifyIfResetAppStateIsWorking(){
+    public void verifyIfResetAppStateIsWorking() {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
@@ -171,7 +171,7 @@ public class SwagLabCartTests extends BasicTest {
     }
 
     @Test
-    public void verifyExitMenuButtonExists(){
+    public void verifyExitMenuButtonExists() {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
@@ -181,8 +181,9 @@ public class SwagLabCartTests extends BasicTest {
 
         leftNavMenu.doesExitNavPageButtonExist();
     }
+
     @Test
-    public void verifyExitMenuButtonFunctionality()  {
+    public void verifyExitMenuButtonFunctionality() {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
@@ -196,6 +197,18 @@ public class SwagLabCartTests extends BasicTest {
         wait
                 .withMessage("Left Nav menu should be insible")
                 .until(ExpectedConditions.invisibilityOf(leftNavMenu.getLeftNavPage()));
+
+    }
+
+
+    @Test
+    public void verifyIfAddedItemsAreVisibleOnCartPAge(){
+        inventoryPage.clickOnFirstAddToCartBtn();
+        inventoryPage.clickOnSecondAddRoCartBtn();
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        Assert.assertTrue(cartPage.areAddedItemsVisibleOnCartPage(), "Number of correct items should be visible");
+
 
     }
 
