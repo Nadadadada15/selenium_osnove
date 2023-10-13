@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LeftNavMenu extends BasicPage {
@@ -29,15 +31,28 @@ public class LeftNavMenu extends BasicPage {
 
 
     public int getNumberOfMenuOptions() {
-
-        List<WebElement> navElements = driver.findElements(By.cssSelector(".bm-item-list>a"));
+        List<WebElement> leftNavElements = driver.findElements(By.cssSelector(".bm-item-list>a"));
         int counter = 0;
-        for (int i = 0; i < navElements.size(); i++) {
+        for (int i = 0; i < leftNavElements.size(); i++) {
             counter++;
 
         }
         return counter;
     }
 
+    public boolean checkSpellingOfAllMenuOptions() {
 
+        ArrayList<String> text = new ArrayList<>();
+        text.add("All Items");
+        text.add("About");
+        text.add("Logout");
+        text.add("Reset App State");
+        List<WebElement> leftNavElements = driver.findElements(By.cssSelector(".bm-item-list>a"));
+        int counter =0;
+        for (int i = 0; i < text.size()-1; i++) {
+           if(leftNavElements.get(i).getAccessibleName().equals(text.get(i)))  {counter++;}
+
+        }
+        return counter==4;
+    }
 }
