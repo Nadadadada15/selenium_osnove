@@ -54,8 +54,15 @@ public class CartPage extends BasicPage {
     }
 
 
+   List <WebElement> quantityContainer = driver.findElements(By.className("cart_quantity"));
 
+        public boolean isQtyContainerPresentForAllItems(){
+            for (int i = 0; i < quantityContainer.size(); i++) {
+            if(!elementExists(By.className("cart_quantity"))) { return false;}
 
+            }
+            return true;
+        }
 
 
 

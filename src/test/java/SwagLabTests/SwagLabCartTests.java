@@ -234,4 +234,17 @@ public class SwagLabCartTests extends BasicTest {
 
     }
 
+    @Test
+    public void verifyQtyButtonsAreVisible() {
+        inventoryPage.clickOnFirstAddToCartBtn();
+        inventoryPage.clickOnSecondAddRoCartBtn();
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        Assert.assertTrue(cartPage.areAddedItemsVisibleOnCartPage(), "Number of correct items should be visible");
+        Assert.assertTrue(cartPage.isQtyContainerPresentForAllItems(), "Qty container for all added items should be displayed");
+
+    }
+
+
+
 }
