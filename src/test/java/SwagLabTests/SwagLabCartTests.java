@@ -13,13 +13,6 @@ public class SwagLabCartTests extends BasicTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"), "User should be on Inventory page");
     }
 
-    @Test
-    public void addProductsToCart() {
-        inventoryPage.clickOnFirstAddToCartBtn();
-
-        Assert.assertEquals(headerPage.getCartItemNum(), "1");
-    }
-
 
     @Test
     public void verifyCartPageURL() {
@@ -81,6 +74,18 @@ public class SwagLabCartTests extends BasicTest {
 
 
     }
+
+
+    @Test
+    public void verifyIfCartHasCorrectItemNumber(){
+        inventoryPage.clickOnFirstAddToCartBtn();
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        Assert.assertEquals(headerPage.getCartItemNum(), "1");
+
+    }
+
+
 
 
 }
