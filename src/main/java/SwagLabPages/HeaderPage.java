@@ -46,4 +46,10 @@ public class HeaderPage extends BasicPage {
         return getHeader().getText();
     }
 
+
+
+    public boolean doesHamMenuExist(){
+
+        return elementExists(By.id("react-burger-menu-btn"));
+    }
 }
