@@ -98,4 +98,10 @@ public class LeftNavMenu extends BasicPage {
         return  elementExists(By.id("react-burger-cross-btn"));
     }
 
+    public WebElement getExitNavPageButton () {
+        return driver.findElement(By.id("react-burger-cross-btn"));
+    }
+
+
+
 }

@@ -181,6 +181,23 @@ public class SwagLabCartTests extends BasicTest {
 
         leftNavMenu.doesExitNavPageButtonExist();
     }
+    @Test
+    public void verifyExitMenuButtonFunctionality()  {
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        headerPage.clickOnHamMenu();
+
+        wait
+                .withMessage("Left Navigation Page should be visible")
+                .until(ExpectedConditions.visibilityOf(leftNavMenu.getLeftNavPage()));
+
+        leftNavMenu.getExitNavPageButton().click();
+
+        wait
+                .withMessage("Left Nav menu should be insible")
+                .until(ExpectedConditions.invisibilityOf(leftNavMenu.getLeftNavPage()));
+
+    }
 
 
 
