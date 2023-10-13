@@ -16,14 +16,14 @@ public class HeaderPage extends BasicPage {
         return cartContainer.getText();
     }
 
-    public WebElement getCartButton(){
+    public WebElement getCartButton() {
 
         return driver.findElement(By.className("shopping_cart_link"));
     }
 
     public void clickOnAddToCartBtn() {
 
-       getCartButton().click();
+        getCartButton().click();
     }
 
 
@@ -43,23 +43,34 @@ public class HeaderPage extends BasicPage {
         return driver.findElement(By.className("app_logo"));
     }
 
-    public  String getHeaderTitle(){
+    public String getHeaderTitle() {
 
         return getHeader().getText();
     }
 
-    public boolean doesHamMenuExist(){
+    public boolean doesHamMenuExist() {
 
         return elementExists(By.id("react-burger-menu-btn"));
     }
 
-    public boolean isHamMenuEnabled(){
+    public boolean isHamMenuEnabled() {
 
         return getHamMenu().isEnabled();
     }
 
-    public boolean isShoppingCartBtnEnabled(){
+    public boolean isShoppingCartBtnEnabled() {
 
         return getCartButton().isEnabled();
     }
+
+    public WebElement getSecondaryHeader() {
+
+        return driver.findElement(By.cssSelector(".header_secondary_container>span"));
+    }
+
+    public String getSecondaryHeaderTitle() {
+        return getSecondaryHeader().getText();
+    }
+
+
 }

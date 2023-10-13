@@ -77,7 +77,7 @@ public class SwagLabCartTests extends BasicTest {
 
 
     @Test
-    public void verifyIfCartHasCorrectItemNumber(){
+    public void verifyIfCartHasCorrectItemNumber() {
         inventoryPage.clickOnFirstAddToCartBtn();
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
@@ -85,7 +85,12 @@ public class SwagLabCartTests extends BasicTest {
 
     }
 
-
+    @Test
+    public void verifySecondayHeaderTitle() {
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        Assert.assertEquals(headerPage.getSecondaryHeaderTitle(), "Your Cart", "The title should be 'Your Cart'");
+    }
 
 
 }
