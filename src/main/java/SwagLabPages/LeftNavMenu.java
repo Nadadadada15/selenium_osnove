@@ -55,4 +55,23 @@ public class LeftNavMenu extends BasicPage {
         }
         return counter==4;
     }
+
+
+    public WebElement getAllItemsOption(){
+        return driver.findElement(By.id("inventory_sidebar_link"));
+    }
+
+    public void clickOnAllItemsOption(){
+
+        getAllItemsOption().click();
+    }
+
+    public WebElement getAboutOption(){
+        return driver.findElement(By.id("about_sidebar_link"));
+    }
+
+    public void clickOnAboutOption(){
+
+        getAboutOption().click();
+    }
 }
