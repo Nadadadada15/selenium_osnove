@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class LeftNavMenu extends BasicPage {
 
 
@@ -16,32 +18,26 @@ public class LeftNavMenu extends BasicPage {
 
     }
 
-public WebElement getLeftNavPage (){
+    public WebElement getLeftNavPage() {
 
-        return  driver.findElement(By.className("bm-menu"));
-}
+        return driver.findElement(By.className("bm-menu"));
+    }
 
-    public WebElement getLogoutBtn () {
+    public WebElement getLogoutBtn() {
         return driver.findElement(By.id("logout_sidebar_link"));
     }
 
 
+    public int getNumberOfMenuOptions() {
 
+        List<WebElement> navElements = driver.findElements(By.cssSelector(".bm-item-list>a"));
+        int counter = 0;
+        for (int i = 0; i < navElements.size(); i++) {
+            counter++;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
+        return counter;
+    }
 
 
 }

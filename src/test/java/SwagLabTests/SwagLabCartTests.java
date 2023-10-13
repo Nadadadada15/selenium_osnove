@@ -93,4 +93,13 @@ public class SwagLabCartTests extends BasicTest {
     }
 
 
+
+    @Test
+    public void verifyLeftNavMenuOptions(){
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+
+        Assert.assertEquals(leftNavMenu.getNumberOfMenuOptions(),4,"There should be four menu options displayed");
+
+    }
 }
