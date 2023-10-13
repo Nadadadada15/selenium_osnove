@@ -1,6 +1,7 @@
 package SwagLabTests;
 
 import SwagLabPages.InventoryPage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,7 +22,7 @@ public class SwagLabCartTests extends BasicTest {
 
 
     @Test
-    public void verifyCartPageURL()  {
+    public void verifyCartPageURL() {
 
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
@@ -37,7 +38,7 @@ public class SwagLabCartTests extends BasicTest {
     }
 
     @Test
-    public void verifyHeaderTitleOnCartPage()  {
+    public void verifyHeaderTitleOnCartPage() {
 
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
@@ -45,42 +46,41 @@ public class SwagLabCartTests extends BasicTest {
     }
 
 
-
-
     @Test
-    public void verifyHamMenuExistsOnCartPage(){
+    public void verifyHamMenuExistsOnCartPage() {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.doesHamMenuExist();
     }
 
     @Test
-    public void verifyHamMenuIsEnabled(){
+    public void verifyHamMenuIsEnabled() {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.clickOnHamMenu();
-        Assert.assertTrue(headerPage.isHamMenuEnabled(),"Hamburger menu should be enabled on Cart page");
+        Assert.assertTrue(headerPage.isHamMenuEnabled(), "Hamburger menu should be enabled on Cart page");
 
     }
 
     @Test
-    public void verifyCartBtnIsEnabled(){
+    public void verifyCartBtnIsEnabled() {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         Assert.assertTrue(headerPage.isShoppingCartBtnEnabled(), "Shopping Cart button should be enabled on Cart page");
 
     }
 
+    @Test
+    public void verifyHamMenuBtnIsWorking() {
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        headerPage.clickOnHamMenu();
+        wait
+                .withMessage("Left Navigation Page should be visible")
+                .until(ExpectedConditions.visibilityOf(leftNavMenu.getLeftNavPage()));
 
 
-
-
-
-
-
-
-
-
+    }
 
 
 }
