@@ -37,4 +37,27 @@ public class CartPage extends BasicPage {
     }
 
 
+    public boolean isItemDescriptionVisible(){
+
+        List <WebElement> productDescription = driver.findElements(By.className("inventory_item_desc"));
+
+        for (int i = 0; i < productDescription.size(); i++) {
+
+            ArrayList<String>descText = new ArrayList<>();
+
+            descText.add(productDescription.get(i).getText());
+
+        }
+
+        return !productDescription.isEmpty();
+
+    }
+
+
+
+
+
+
+
+
 }

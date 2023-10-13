@@ -223,5 +223,15 @@ public class SwagLabCartTests extends BasicTest {
 
     }
 
+    @Test
+    public void verifyIfAddedItemsDescriptionAreVisible() {
+        inventoryPage.clickOnFirstAddToCartBtn();
+        inventoryPage.clickOnSecondAddRoCartBtn();
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        Assert.assertTrue(cartPage.areAddedItemsVisibleOnCartPage(), "Number of correct items should be visible");
+        Assert.assertTrue(cartPage.isItemDescriptionVisible(), "Description of all added items should be displayed");
+
+    }
 
 }
