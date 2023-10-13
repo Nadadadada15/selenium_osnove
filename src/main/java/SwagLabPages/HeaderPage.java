@@ -37,8 +37,6 @@ public class HeaderPage extends BasicPage {
 
     public WebElement getHeader() {
         return driver.findElement(By.className("app_logo"));
-
-
     }
 
     public  String getHeaderTitle(){
@@ -46,10 +44,13 @@ public class HeaderPage extends BasicPage {
         return getHeader().getText();
     }
 
-
-
     public boolean doesHamMenuExist(){
 
         return elementExists(By.id("react-burger-menu-btn"));
+    }
+
+    public boolean isHamMenuEnabled(){
+
+        return getHamMenu().isEnabled();
     }
 }

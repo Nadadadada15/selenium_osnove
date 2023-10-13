@@ -52,6 +52,28 @@ public class SwagLabCartTests extends BasicTest {
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
         headerPage.doesHamMenuExist();
+    }
+
+    @Test
+    public void verifyHamMenuIsEnabled(){
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        headerPage.clickOnHamMenu();
+        Assert.assertTrue(headerPage.isHamMenuEnabled(),"Hamburger menu should be enabled on Cart page");
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
