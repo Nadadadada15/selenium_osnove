@@ -84,4 +84,18 @@ public class LeftNavMenu extends BasicPage {
         getLogoutOption().click();
     }
 
+    public WebElement getResetOption(){
+        return driver.findElement(By.id("reset_sidebar_link"));
+    }
+
+    public void clickOnResetOption(){
+
+        getResetOption().click();
+    }
+
+
+    public boolean doesExitNavPageButtonExist(){
+        return  elementExists(By.id("react-burger-cross-btn"));
+    }
+
 }

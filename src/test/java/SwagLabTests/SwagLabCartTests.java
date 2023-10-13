@@ -1,6 +1,7 @@
 package SwagLabTests;
 
 import SwagLabPages.InventoryPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -165,9 +166,23 @@ public class SwagLabCartTests extends BasicTest {
                 .until(ExpectedConditions.visibilityOf(leftNavMenu.getLeftNavPage()));
 
         leftNavMenu.clickOnLogoutOption();
-        Assert.assertTrue(loginPage.getLoginButton().isDisplayed());
+        Assert.assertTrue(loginPage.getLoginButton().isDisplayed(), "User should be redirectedto Login page again");
 
     }
+
+    @Test
+    public void verifyExitMenuButtonExists(){
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        headerPage.clickOnHamMenu();
+        wait
+                .withMessage("Left Navigation Page should be visible")
+                .until(ExpectedConditions.visibilityOf(leftNavMenu.getLeftNavPage()));
+
+        leftNavMenu.doesExitNavPageButtonExist();
+    }
+
+
 
 
 }
