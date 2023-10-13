@@ -117,6 +117,15 @@ public class SwagLabCartTests extends BasicTest {
 
 
     @Test
+    public void verifyGetAllItemsOption(){
+        headerPage.clickOnHamMenu();
+        wait
+                .withMessage("Left Navigation Page should be visible")
+                .until(ExpectedConditions.visibilityOf(leftNavMenu.getLeftNavPage()));
+
+        leftNavMenu.clickOnAllItemsOption();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"), "User should be on Inventory page");
+    }
 
 
 
