@@ -74,4 +74,14 @@ public class LeftNavMenu extends BasicPage {
 
         getAboutOption().click();
     }
+
+    public WebElement getLogoutOption(){
+        return driver.findElement(By.id("logout_sidebar_link"));
+    }
+
+    public void clickOnLogoutOption(){
+
+        getLogoutOption().click();
+    }
+
 }

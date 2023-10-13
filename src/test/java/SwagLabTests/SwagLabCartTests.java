@@ -128,5 +128,26 @@ public class SwagLabCartTests extends BasicTest {
     }
 
 
+    @Test
+    public void verifyAboutOption(){
+        headerPage.clickOnHamMenu();
+        wait
+                .withMessage("Left Navigation Page should be visible")
+                .until(ExpectedConditions.visibilityOf(leftNavMenu.getLeftNavPage()));
+
+        leftNavMenu.clickOnAboutOption();
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://saucelabs.com/"), "User should be on saucelab promopage");
+    }
+    @Test
+    public void verifylogoutOption(){
+        headerPage.clickOnHamMenu();
+        wait
+                .withMessage("Left Navigation Page should be visible")
+                .until(ExpectedConditions.visibilityOf(leftNavMenu.getLeftNavPage()));
+
+        leftNavMenu.clickOnLogoutOption();
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/"), "User should be loggin page");
+    }
+
 
 }
