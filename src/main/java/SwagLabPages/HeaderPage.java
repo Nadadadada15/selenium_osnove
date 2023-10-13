@@ -16,11 +16,11 @@ public class HeaderPage extends BasicPage {
         return cartContainer.getText();
     }
 
-public void  clickOnAddToCartBtn (){
+    public void clickOnAddToCartBtn() {
 
-   WebElement cartLink= driver.findElement(By.className("shopping_cart_link"));
-   cartLink.click();
-}
+        WebElement cartLink = driver.findElement(By.className("shopping_cart_link"));
+        cartLink.click();
+    }
 
 
     public WebElement getHamMenu() {
@@ -29,9 +29,21 @@ public void  clickOnAddToCartBtn (){
     }
 
 
-    public void clickOnHamMenu(){
+    public void clickOnHamMenu() {
         getHamMenu().click();
 
+    }
+
+
+    public WebElement getHeader() {
+        return driver.findElement(By.className("app_logo"));
+
+
+    }
+
+    public  String getHeaderTitle(){
+
+        return getHeader().getText();
     }
 
 }

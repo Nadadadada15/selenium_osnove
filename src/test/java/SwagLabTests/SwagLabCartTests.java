@@ -21,18 +21,29 @@ public class SwagLabCartTests extends BasicTest {
 
 
     @Test
-    public void verifyCartPageURL() {
+    public void verifyCartPageURL()  {
+
         headerPage.clickOnAddToCartBtn();
         Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
 
     }
 
     @Test
-    public void verifyCartPageTitle(){
-headerPage.clickOnAddToCartBtn();
-Assert.assertTrue(driver.getTitle().equals("Swag Labs"));
+    public void verifyCartPageTitle() {
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        Assert.assertTrue(driver.getTitle().equals("Swag Labs"));
 
     }
+
+    @Test
+    public void verifyHeaderTitleOnCartPage()  {
+
+        headerPage.clickOnAddToCartBtn();
+        Assert.assertTrue(driver.getCurrentUrl().contains("/cart.html"), "User Should Be on Cart page");
+        headerPage.getHeaderTitle();
+    }
+
 
 
 }
