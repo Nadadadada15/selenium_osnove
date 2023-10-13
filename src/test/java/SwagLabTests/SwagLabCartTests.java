@@ -27,5 +27,12 @@ public class SwagLabCartTests extends BasicTest {
 
     }
 
+    @Test
+    public void verifyCartPageTitle(){
+headerPage.clickOnAddToCartBtn();
+Assert.assertTrue(driver.getTitle().equals("Swag Labs"));
+
+    }
+
 
 }
